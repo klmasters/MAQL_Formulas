@@ -1,0 +1,17 @@
+SELECT (SELECT (SELECT IFNULL(Hours Actual: Billable, 0) WHERE Date (Date Performed) < _Global Date [min]) 
+/ 
+(SELECT (SELECT IFNULL(Hours Actual: Billable, 0) WHERE Date (Date Performed) < _Global Date [min]) 
++ 
+(SELECT IFNULL(Hours Scheduled: Billable, 0) WHERE Date (SAD Date) > _Global Date [min] - 1))) 
+- 
+(SELECT (SELECT IFNULL(Hours Actual: Billable, 0) WHERE Date (Date Performed) < _Global Date [min]) 
+/ * Hrs from SOW [Sum])
+
+
+[<-0.10][red]-##0.00%;
+[<=-0.09][color=edda34]-##0.00%;
+[<=-0.08][color=edda34]-##0.00%;
+[<=0][green]##0.00%;
+[<=0.08][green]##0.00%;
+[<0.10][color=edda34]##0.00%;
+[>0.10][red]##0.00%;
