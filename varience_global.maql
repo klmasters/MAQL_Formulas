@@ -1,8 +1,14 @@
+
+/* finds varience between burn of scheduled hours and burn of SOW hours */
+
 SELECT (SELECT (SELECT IFNULL(Hours Actual: Billable, 0) WHERE Date (Date Performed) < _Global Date [min]) 
+/* actual billible hours that were entered before the date on the dashboard (global date) divided by next expression */
 / 
 (SELECT (SELECT IFNULL(Hours Actual: Billable, 0) WHERE Date (Date Performed) < _Global Date [min]) 
 + 
 (SELECT IFNULL(Hours Scheduled: Billable, 0) WHERE Date (SAD Date) > _Global Date [min] - 1))) 
+/* actual hours before chosen date plus scheduled hours after chosen date */
+/* above expressions give amount of scheduled hours used */
 - 
 (SELECT (SELECT IFNULL(Hours Actual: Billable, 0) WHERE Date (Date Performed) < _Global Date [min]) 
 / * Hrs from SOW [Sum])
