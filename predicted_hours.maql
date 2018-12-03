@@ -1,0 +1,6 @@
+SELECT (SELECT IFNULL(Hours Actual: Billable, 0) WHERE Date (Date Performed) < _Global Date [min]) 
+
++ (SELECT IFNULL(Hours Scheduled: Billable, 0) WHERE Date (SAD Date) > _Global Date [min]-1)
+
+
+/* adds entered hours before the chosen date and scheduled hours after the chosen date to get predicted hours */
