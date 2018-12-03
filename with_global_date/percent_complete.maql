@@ -1,0 +1,7 @@
+SELECT (SELECT IFNULL(Hours Actual: Billable, 0) WHERE Date (Date Performed) < _Global Date [min]) 
+
+/ (SELECT (SELECT IFNULL(Hours Actual: Billable, 0) WHERE Date (Date Performed) < _Global Date [min]) 
+
++ (SELECT IFNULL(Hours Scheduled: Billable, 0) WHERE Date (SAD Date) > _Global Date [min] - 1))
+
+/* actual hours divided but perdicted hours (past actual + future scheduled) based on chosen date on dashboard */
