@@ -1,8 +1,12 @@
-SELECT CASE WHEN Hours Scheduled: % Billable [no pto] = Billability Target KLM THEN 1, 
-WHEN Hours Scheduled: % Billable [no pto]BETWEEN (SELECT SUM(Billability Target KLM - 0.05)) AND (SELECT SUM(Billability Target KLM + 0.05)) THEN 2, 
-WHEN Hours Scheduled: % Billable [no pto] < (SELECT SUM(Billability Target KLM - 0.05)) THEN 3, 
-WHEN Hours Scheduled: % Billable [no pto] > (SELECT SUM(Billability Target KLM + 0.05)) THEN 4 ELSE 0 END
+SELECT CASE WHEN Hours Scheduled: % Billable = Billability Target THEN 1, 
+WHEN Hours Scheduled: % Billable BETWEEN (SELECT SUM(Billability Target - 0.05)) 
+    AND (SELECT SUM(Billability Target + 0.05)) THEN 2, 
+WHEN Hours Scheduled: % Billable < (SELECT SUM(Billability Target - 0.05)) THEN 3, 
+WHEN Hours Scheduled: % Billable > (SELECT SUM(Billability Target + 0.05)) THEN 4 ELSE 0 END
 
+/* tracks scheduled billible hours to billibility target to assess how employees are being utilized on projects */
+
+/* conditional formatting */
 [=0][color=dddbdd]No Activity;
  [=1] ⭐;
  [=2][color=23ef94] On Target;
