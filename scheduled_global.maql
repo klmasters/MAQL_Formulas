@@ -1,0 +1,4 @@
+SELECT IFNULL(Hours Scheduled: Billable, 0) WHERE Date (SAD Date) > _Global Date [min]-1
+
+
+/* selects scheduled billible hours that are one day less than the date selected on the dashboard filter */ 

@@ -1,1 +1,0 @@
-klm scheduled with global date	SELECT IFNULL(Hours Scheduled: Billable, 0) WHERE Date (SAD Date) > _Global Date [min]-1
