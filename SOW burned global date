@@ -1,1 +1,0 @@
-SELECT (SELECT IFNULL(Hours Actual: Billable, 0) WHERE Date (Date Performed) < _Global Date [min]) / SOW hours
