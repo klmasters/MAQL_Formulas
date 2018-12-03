@@ -3,16 +3,21 @@
 
 SELECT (SELECT (SELECT IFNULL(Hours Actual: Billable, 0) WHERE Date (Date Performed) < _Global Date [min]) 
 /* actual billible hours that were entered before the date on the dashboard (global date) divided by next expression */
+
 / 
 (SELECT (SELECT IFNULL(Hours Actual: Billable, 0) WHERE Date (Date Performed) < _Global Date [min]) 
 + 
 (SELECT IFNULL(Hours Scheduled: Billable, 0) WHERE Date (SAD Date) > _Global Date [min] - 1))) 
 /* actual hours before chosen date plus scheduled hours after chosen date */
 /* above expressions give amount of scheduled hours used */
+
 - 
 (SELECT (SELECT IFNULL(Hours Actual: Billable, 0) WHERE Date (Date Performed) < _Global Date [min]) 
-/ * Hrs from SOW [Sum])
+/ SOW Hours)
+/* calculates the amount of SOW hours used up to date chosen on dashboard */
 
+
+/* condidional formating */
 
 [<-0.10][red]-##0.00%;
 [<=-0.09][color=edda34]-##0.00%;
