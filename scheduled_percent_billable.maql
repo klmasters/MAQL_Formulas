@@ -1,0 +1,4 @@
+SELECT ifnull(Hours Scheduled: Billable, 0) 
+/ (ifnull(Hours Possible For Timeframe, 0) - ifnull(Scheduled PTO, 0))
+
+/* calculates scheduled utilization */
