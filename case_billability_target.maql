@@ -4,7 +4,7 @@ WHEN Hours Scheduled: % Billable BETWEEN (SELECT SUM(Billability Target - 0.05
 WHEN Hours Scheduled: % Billable < (SELECT SUM(Billability Target - 0.05)) THEN 3, 
 WHEN Hours Scheduled: % Billable > (SELECT SUM(Billability Target + 0.05)) THEN 4 ELSE 0 END
 
-/* tracks scheduled billible hours to billibility target to assess how employees are being utilized on projects */
+/* tracks scheduled billible hours to billability target to assess how employees are being utilized on projects */
 
 /* conditional formatting */
 [=0][color=dddbdd]No Activity;
